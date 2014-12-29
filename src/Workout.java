@@ -11,27 +11,17 @@ public class Workout {
 
     // Constructors
     public Workout() {
-        this.setLifts(new ArrayList<Lift>());
-        this.setDate(new Date());
+        this(new Date());
     }
 
-    public Workout(ArrayList<Lift> lifts) {
-        this.setLifts(new ArrayList<Lift>(lifts));
-        this.setDate(new Date());
-    }
 
     public Workout(Date date) {
         this.setLifts(new ArrayList<Lift>());
         this.setDate(new Date(date.getTime()));
     }
 
-    public Workout(Workout workout) {
-        this.setLifts(new ArrayList<Lift>(workout.getLifts()));
-        this.setDate(new Date(workout.getDate().getTime()));
-    }
-
     // Getters
-    private ArrayList<Lift> getLifts() {
+    public ArrayList<Lift> getLifts() {
         return this.lifts;
     }
 

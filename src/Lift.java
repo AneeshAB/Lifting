@@ -12,23 +12,12 @@ public class Lift {
 
     // Constructors
     public Lift() {
-        this.setSets(new ArrayList<Set>());
-        this.setName(DEFAULT_NAME);
-    }
-
-    public Lift(ArrayList<Set> sets) {
-        this.setSets(new ArrayList<Set>(sets));
-        this.setName(DEFAULT_NAME);
+        this(DEFAULT_NAME);
     }
 
     public Lift(String name) {
         this.setSets(new ArrayList<Set>());
         this.setName(name);
-    }
-
-    public Lift(Lift lift) {
-        this.setSets(new ArrayList<Set>(lift.getSets()));
-        this.setName(lift.getName());
     }
 
     // Getters

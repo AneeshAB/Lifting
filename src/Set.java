@@ -11,11 +11,6 @@ public class Set {
         this.weight = weight;
     }
 
-    public Set(Set set) {
-        this.setNumReps(set.getNumReps());
-        this.setWeight(set.getWeight());
-    }
-
     // Getters
     private int getNumReps() {
         return this.numReps;
@@ -37,6 +32,6 @@ public class Set {
     // Object Overrides
     @Override
     public String toString() {
-        return this.getNumReps() + "\t\t" + this.getWeight();
+        return this.getNumReps() + "\t" + this.getWeight();
     }
 }
