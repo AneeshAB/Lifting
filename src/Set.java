@@ -1,6 +1,7 @@
 /**
  * Created by aneesh on 12/27/14.
  */
+
 public class Set {
     private int numReps;
     private int weight;
@@ -32,6 +33,6 @@ public class Set {
     // Object Overrides
     @Override
     public String toString() {
-        return this.getNumReps() + "\t" + this.getWeight();
+        return this.getNumReps() + "x" + this.getWeight();
     }
 }

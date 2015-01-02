@@ -1,11 +1,12 @@
+/**
+ * Created by aneesh on 12/27/14.
+ */
+
 import java.io.Console;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by aneesh on 12/27/14.
- */
 public class Driver {
     public static void main(String[] args) {
         Console console = System.console();
@@ -29,7 +30,7 @@ public class Driver {
         Workout workout = new Workout(workoutDate);
         // Lift / Set loop
         String liftName = "";
-        for (int i = 0; !liftName.equals("q"); i++) {
+        for (int i = 0; true; i++) {
             liftName = console.readLine("Enter lift name (q to exit): ");
             if (liftName.equals("q")) {
                 break;
@@ -43,7 +44,7 @@ public class Driver {
 
             // Set loop
             String setString = "";
-            for (int j = 0; !setString.equals("q"); j++) {
+            for (int j = 0; true; j++) {
                 setString = console.readLine("Enter set data in form reps weight (q to exit): ");
                 if (setString.equals("q")) {
                     break;

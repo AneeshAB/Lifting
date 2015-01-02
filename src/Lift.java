@@ -1,8 +1,9 @@
-import java.util.ArrayList;
-
 /**
  * Created by aneesh on 12/27/14.
  */
+
+import java.util.ArrayList;
+
 public class Lift {
     private static final String DEFAULT_NAME = "Untitled";
 
@@ -46,7 +47,7 @@ public class Lift {
     // Object Overrides
     @Override
     public String toString() {
-        String returned = name + "\n" + "Reps" + "\t" + "Weight";
+        String returned = name;
         for (Set s : this.getSets()) {
             returned += "\n" + s.toString();
         }
