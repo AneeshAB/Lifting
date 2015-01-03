@@ -22,11 +22,11 @@ public class Lift {
     }
 
     // Getters
-    private ArrayList<Set> getSets() {
+    public ArrayList<Set> getSets() {
         return this.sets;
     }
 
-    private String getName() {
+    public String getName() {
         return this.name;
     }
 

@@ -14,14 +14,14 @@ public class Driver {
 
         // Get the workout date from the user
         while (workoutDate == null) {
-            String dateString = console.readLine("Workout date in form mm/dd/yy (Blank for today): ");
+            String dateString = console.readLine("Workout date in form MM-dd-yy (Blank for today): ");
             if (dateString.equals("")) {
                 workoutDate = new Date();
                 break;
             }
 
             try {
-                SimpleDateFormat formatter = new SimpleDateFormat("mm/dd/yy");
+                SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yy");
                 workoutDate = formatter.parse(dateString);
             }
             catch (ParseException e) { }

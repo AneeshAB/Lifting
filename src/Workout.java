@@ -2,6 +2,7 @@
  * Created by aneesh on 12/27/14.
  */
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -52,8 +53,12 @@ public class Workout {
         return this.lifts;
     }
 
-    public Date getDate() {
+    private Date getDate() {
         return this.date;
+    }
+
+    public String getDateString() {
+        return new SimpleDateFormat("YYYY-MM-DD").format(this.getDate());
     }
 
     // Setters

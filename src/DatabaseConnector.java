@@ -19,12 +19,19 @@ public class DatabaseConnector {
     public static void main(String[] args) {
         // Connect to database
         DatabaseConnector dbConnect = new DatabaseConnector();
-        try {
-            dbConnect.connect();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
+        Workout workout = new Workout();
+
+        Lift benchPress = new Lift("Bench Press");
+        benchPress.addSet(new Set(5, 135));
+        benchPress.addSet(new Set(5, 135));
+        workout.addLift(benchPress);
+
+        Lift deadlift = new Lift("Deadlift");
+        deadlift.addSet(new Set(5, 225));
+        workout.addLift(deadlift);
+
+        dbConnect.addWorkout(workout);
     }
 
     // Constructors
@@ -78,6 +85,10 @@ public class DatabaseConnector {
         this.getConnection().close();
     }
 
+    private void updateQuery(String sql) throws SQLException {
+        this.getConnection().createStatement().executeUpdate(sql);
+    }
+
     public void addWorkout(Workout workout) {
         // Connect to the database
         try {
@@ -90,6 +101,35 @@ public class DatabaseConnector {
         catch (SQLException e) {
             System.out.println(e.getMessage());
             return;
+        }
+
+        // SQL Stuff
+        for (Lift l : workout.getLifts()) { // Lift loop
+            String sqlQuery = "CREATE TABLE IF NOT EXISTS " + "`" + l.getName() + "`"
+                    + " (id INTEGER not NULL AUTO_INCREMENT, "
+                    + " date DATE, "
+                    + " reps INTEGER, "
+                    + " weight INTEGER, "
+                    + " PRIMARY KEY ( id ))";
+            try {
+                this.updateQuery(sqlQuery);
+            }
+            catch (SQLException e) {
+                System.out.println(e.getMessage());
+                return;
+            }
+
+            for (Set s : l.getSets()) { // Set loop
+                sqlQuery = "INSERT INTO " + "`" + l.getName() + "`" + " (date, reps, weight) VALUES ("
+                        + "\"" + workout.getDateString() + "\"" + ", " + s.getNumReps() + ", " + s.getWeight() + ")";
+                try {
+                    this.updateQuery(sqlQuery);
+                }
+                catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                    return;
+                }
+            }
         }
 
         // Disconnect from the database

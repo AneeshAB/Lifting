@@ -13,11 +13,11 @@ public class Set {
     }
 
     // Getters
-    private int getNumReps() {
+    public int getNumReps() {
         return this.numReps;
     }
 
-    private int getWeight() {
+    public int getWeight() {
         return this.weight;
     }
 
